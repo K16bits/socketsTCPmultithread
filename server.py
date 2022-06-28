@@ -1,16 +1,18 @@
 import socket
 import threading
+from environment import SIZE
 
 def thread_function(conn):
     with conn:
         # msg = conn.recv(1024)
-        msg = conn.recv(1)
+        msg = conn.recv(SIZE)
         if not msg:
             return conn.close()
+
         print("Client{} Message:{}".format(client,msg.decode("UTF-8")))
         print("Finalizando a conexão com o cliente")
-        stringReverse = msg[::-1]
-        conn.sendall(stringReverse)
+        # stringReverse = msg[::-1]
+        # conn.sendall(stringReverse)
         conn.close()
 
 HOST = 'localhost'
