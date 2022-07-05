@@ -1,6 +1,6 @@
 import socket
 import threading
-from environment import SIZE
+from environment import SIZE,PORT
 
 def thread_function(conn):
     with conn:
@@ -16,7 +16,6 @@ def thread_function(conn):
         conn.close()
 
 HOST = 'localhost'
-PORT = 3000
 
 tcp = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 orig = (HOST,PORT)
